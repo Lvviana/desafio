@@ -1,0 +1,18 @@
+# Exemplo A:
+from collections import Counter
+
+def is_anagram_of_palindrome(input_string):
+    char_count = Counter(input_string)
+    odd_count = 0
+
+    for count in char_count.values():
+        if count % 2 != 0:
+            odd_count += 1
+        if odd_count > 1:
+            return False
+
+    return True
+
+input_string = "racecar"
+result = is_anagram_of_palindrome(input_string)
+print(result)
