@@ -1,0 +1,28 @@
+# Exemplo:
+def expand_from_center(s, left, right):
+    while left >= 0 and right < len(s) and s[left] == s[right]:
+        left -= 1
+        right += 1
+    return s[left + 1 : right]
+
+def longest_palindrome_substring(input_string):
+    if len(input_string) < 2:
+        return input_string
+
+    longest_palindrome = ''
+    for i in range(len(input_string)):
+        # Caso 1: Expansão central para substrings de tamanho ímpar
+        substring1 = expand_from_center(input_string, i, i)
+        if len(substring1) > len(longest_palindrome):
+            longest_palindrome = substring1
+
+        # Caso 2: Expansão central para substrings de tamanho par
+        substring2 = expand_from_center(input_string, i, i + 1)
+        if len(substring2) > len(longest_palindrome):
+            longest_palindrome = substring2
+
+    return longest_palindrome
+
+input_string = "babad"
+result = longest_palindrome_substring(input_string)
+print(result)
