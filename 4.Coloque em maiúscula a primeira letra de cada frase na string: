@@ -1,0 +1,10 @@
+# Exemplo A:
+def capitalize_sentences(input_string):
+    sentences = input_string.split('. ')
+    capitalized_sentences = [sentence.capitalize() for sentence in sentences]
+    output_string = '. '.join(capitalized_sentences)
+    return output_string
+
+input_string = "hello. how are you? i'm fine, thank you."
+result = capitalize_sentences(input_string)
+print(result)
